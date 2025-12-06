@@ -28,6 +28,7 @@ Deno.cron("Tailscale Node Monitor", "*/5 * * * *", async () => {
     }
   } catch (err) {
     console.error("Cron failed:", err);
-    await sendNotification(`Tailscale monitor cron failed: ${err.message}`);
+    const message = err instanceof Error ? err.message : String(err);
+    await sendNotification(`Tailscale monitor cron failed: ${message}`);
   }
 });
