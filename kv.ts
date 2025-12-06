@@ -11,5 +11,5 @@ export async function setState(deviceId: string, state: Device) {
 }
 
 export function shouldMonitor(device: { tags: string[]; name: string }): boolean {
-  return device.tags.includes("tag:monitor") || device.name.includes("[monitor]");
+  return device.tags?.includes("tag:monitor") || device.name?.includes("[monitor]");
 }
